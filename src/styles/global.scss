@@ -1,3 +1,5 @@
+@use "./variables.scss" as *;
+
 *,
 *::before,
 *::after {
@@ -10,6 +12,20 @@ html {
   box-sizing: border-box;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 body {
+  font-family: "Inter", sans-serif;
   font-size: 16px;
+  line-height: 1.25;
+}
+
+.main {
+  color: $main-color;
+  background-color: $main-bg;
+  display: grid;
+  grid-template-columns: 212px 1fr 280px;
 }

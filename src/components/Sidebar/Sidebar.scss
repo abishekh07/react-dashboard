@@ -1,0 +1,110 @@
+@use "../../styles/mixins.scss" as *;
+@use "../../styles/variables.scss" as *;
+
+.Sidebar {
+  padding: 20px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  font-size: 14px;
+
+  .logo {
+    @include alignCenter;
+    margin: 4px;
+
+    img {
+      margin-right: 8px;
+    }
+  }
+
+  .favourites {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    &__tabs {
+      display: flex;
+      gap: 8px;
+
+      &-btn {
+        color: $tertiary-color;
+        background-color: transparent;
+        border: none;
+        padding: 4px 8px;
+        cursor: pointer;
+        font-size: 14px;
+
+        &.active {
+          color: $secondary-color;
+        }
+      }
+    }
+
+    &__content {
+      &-list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+
+        &--item {
+          padding: 4px 28px;
+          position: relative;
+
+          &::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 14px;
+            transform: translateY(-50%);
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background-color: $tertiary-color;
+          }
+        }
+      }
+    }
+  }
+
+  .menu {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    &__item {
+      padding: 0 12px 12px;
+
+      h2 {
+        font-size: 14px;
+        font-weight: normal;
+        color: $secondary-color;
+        padding: 4px 0;
+        margin-bottom: 8px;
+      }
+    }
+
+    &__list {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+
+      &-item {
+        padding: 4px 8px 4px 0;
+
+        div {
+          @include alignCenter;
+          gap: 4px;
+        }
+      }
+
+      .submenu {
+        list-style: none;
+
+        &__item {
+          display: none;
+        }
+      }
+    }
+  }
+}

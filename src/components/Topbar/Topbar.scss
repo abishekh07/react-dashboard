@@ -1,2 +1,5 @@
-.Topbar {
+@use "../../styles/mixins.scss" as *;
+
+.topbar {
+  @include spaceBetween;
 }

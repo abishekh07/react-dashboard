@@ -7,6 +7,7 @@
   flex-direction: column;
   gap: 16px;
   font-size: 14px;
+  border-right: 1px solid $border-light;
 
   .logo {
     @include alignCenter;
@@ -73,13 +74,12 @@
     gap: 16px;
 
     &__item {
-      padding: 0 12px 12px;
-
       h2 {
         font-size: 14px;
         font-weight: normal;
         color: $secondary-color;
         padding: 4px 0;
+        margin-left: 10px;
         margin-bottom: 8px;
       }
     }
@@ -90,19 +90,49 @@
       gap: 4px;
 
       &-item {
-        padding: 4px 8px 4px 0;
-
-        div {
+        &--info {
           @include alignCenter;
           gap: 4px;
+          padding: 4px 8px 4px 0;
+
+          .dropdown-arrow,
+          span:first-child {
+            width: 16px;
+            height: 16px;
+            margin-left: 4px;
+          }
+
+          .dropdown-arrow {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+
+            @include alignCenter;
+          }
         }
       }
 
       .submenu {
         list-style: none;
+        padding-left: 48px;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
 
         &__item {
           display: none;
+          padding: 4px 8px 4px 0;
+        }
+      }
+
+      &-item.open {
+        .dropdown-arrow {
+          transform: rotate(90deg);
+        }
+
+        .submenu__item {
+          display: block;
         }
       }
     }

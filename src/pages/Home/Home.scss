@@ -1,2 +1,33 @@
 .Home {
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  .overview {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(202px, 1fr));
+    grid-template-rows: repeat(auto-fit, minmax(252px, 1fr));
+    gap: 28px;
+
+    &__section {
+      &:nth-of-type(1) {
+        grid-column: 1 / span 3;
+      }
+
+      &:nth-of-type(2) {
+        grid-column: 3 / span 3;
+      }
+
+      &:nth-of-type(3) {
+        grid-column: 1 / span 3;
+        grid-row: 2;
+      }
+
+      &:nth-of-type(4) {
+        grid-column: 4 / span 1;
+        grid-row: 2;
+      }
+    }
+  }
 }

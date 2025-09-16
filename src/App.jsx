@@ -2,7 +2,7 @@ import Home from "./pages/Home/Home";
 import Orders from "./pages/Orders/Orders";
 import Sidebar from "./components/Sidebar/Sidebar";
 import Topbar from "./components/TopBar/Topbar";
-import NotificationsPanel from "./components/NotificationsPanel/NotificationsPanel";
+import ActivityPanel from "./components/ActivityPanel/ActivityPanel";
 
 import "./styles/global.scss";
 
@@ -52,7 +52,7 @@ function Layout() {
         </div>
       </div>
 
-      {showNotifications && <NotificationsPanel />}
+      {showNotifications && <ActivityPanel />}
     </div>
   );
 }

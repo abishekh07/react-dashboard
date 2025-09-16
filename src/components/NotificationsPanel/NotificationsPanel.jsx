@@ -1,7 +1,7 @@
 import "./NotificationsPanel.scss";
 
 function NotificationsPanel() {
-  return <div className="NotificationsPanel">NotificationsPanel</div>;
+  return <div className="notifications">NotificationsPanel</div>;
 }
 
 export default NotificationsPanel;

@@ -1,2 +1,5 @@
-.NotificationsPanel {
+@use "../../styles/variables.scss" as *;
+
+.notifications {
+  border-left: 1px solid $border-light;
 }

@@ -1,5 +1,86 @@
 @use "../../styles/mixins.scss" as *;
+@use "../../styles/variables.scss" as *;
 
 .topbar {
   @include spaceBetween;
+  padding: 20px 28px;
+  border-bottom: 1px solid $border-light;
+
+  .navigation__button {
+    @include alignCenter;
+    cursor: pointer;
+    padding: 4px;
+    margin: 0;
+    border: none;
+    background-color: transparent;
+  }
+
+  &__left {
+    @include alignCenter;
+    gap: 8px;
+    flex-grow: 1;
+
+    .breadcrumb {
+      @include alignCenter;
+      font-size: 14px;
+
+      span[class^="breadcrumb"] {
+        padding: 4px 8px;
+      }
+
+      &__category {
+        color: $secondary-color;
+      }
+
+      .divider {
+        color: $tertiary-color;
+      }
+    }
+  }
+
+  &__right {
+    @include alignCenter;
+    gap: 20px;
+
+    .search {
+      background-color: $input-bg-color;
+      padding: 4px 8px;
+      @include alignCenter;
+      gap: 8px;
+      border-radius: 8px;
+
+      &__bar {
+        @include alignCenter;
+        gap: 4px;
+      }
+
+      &__icon {
+        display: flex;
+        border: none;
+        background: transparent;
+        margin: 0;
+        cursor: pointer;
+        padding: 2px 0;
+      }
+
+      &__input {
+        background-color: transparent;
+        border: none;
+        outline: none;
+        width: 96px;
+      }
+
+      .shortcuts {
+        border: none;
+        background: transparent;
+        margin: 0;
+        color: $tertiary-color;
+      }
+    }
+
+    &-icons {
+      @include alignCenter;
+      gap: 8px;
+    }
+  }
 }

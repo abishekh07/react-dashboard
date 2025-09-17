@@ -6,28 +6,36 @@
 
   .overview {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(202px, 1fr));
-    grid-template-rows: repeat(auto-fit, minmax(252px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: minmax(252px, 1fr) minmax(318px, 1fr) minmax(336px, 1fr);
+    grid-template-areas:
+      "summary summary projections projections"
+      "revenue-chart revenue-chart revenue-chart revenue-by-location"
+      "top-selling-products top-selling-products top-selling-products total-sales";
     gap: 28px;
 
-    &__section {
-      &:nth-of-type(1) {
-        grid-column: 1 / span 3;
-      }
+    .summary {
+      grid-area: summary;
+    }
 
-      &:nth-of-type(2) {
-        grid-column: 3 / span 3;
-      }
+    .projections {
+      grid-area: projections;
+    }
 
-      &:nth-of-type(3) {
-        grid-column: 1 / span 3;
-        grid-row: 2;
-      }
+    .revenue-chart {
+      grid-area: revenue-chart;
+    }
 
-      &:nth-of-type(4) {
-        grid-column: 4 / span 1;
-        grid-row: 2;
-      }
+    .revenue-by-location {
+      grid-area: revenue-by-location;
+    }
+
+    .top-selling-products {
+      grid-area: top-selling-products;
+    }
+
+    .total-sales {
+      grid-area: total-sales;
     }
   }
 }

@@ -1,3 +1,6 @@
+@use "../../styles/variables.scss" as *;
+@use "../../styles/mixins.scss" as *;
+
 .Home {
   padding: 28px;
   display: flex;
@@ -6,20 +9,95 @@
 
   .overview {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: minmax(252px, 1fr) minmax(318px, 1fr) minmax(336px, 1fr);
+    grid-template-columns: 2fr 2fr 2fr 1fr;
+    grid-template-rows: 252px minmax(318px, 1fr) minmax(336px, 1fr);
     grid-template-areas:
-      "summary summary projections projections"
+      "summary projections projections projections"
       "revenue-chart revenue-chart revenue-chart revenue-by-location"
       "top-selling-products top-selling-products top-selling-products total-sales";
     gap: 28px;
 
+    &__caption {
+      width: fit-content;
+      font-size: 14px;
+      padding: 4px 8px;
+    }
+
+    &__section {
+      &:not(:first-of-type) {
+        padding: 24px;
+      }
+    }
+
     .summary {
       grid-area: summary;
+
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      gap: 28px;
+
+      &__card {
+        padding: 24px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        height: fit-content;
+        border-radius: 16px;
+
+        &.customers {
+          background-color: $light-blue-1;
+        }
+
+        &.orders {
+          background-color: $light-blue-2;
+        }
+
+        &.revenue {
+          background-color: $light-blue-2;
+        }
+
+        &.growth {
+          background-color: $light-purple;
+        }
+      }
+
+      &__title {
+        font-size: 14px;
+      }
+
+      &__info {
+        display: flex;
+        align-items: center;
+        gap: 28px;
+      }
+
+      &__value {
+        line-height: 36px;
+        font-size: 24px;
+        font-weight: 600;
+      }
+
+      &__delta {
+        font-size: 12px;
+        @include alignCenter;
+        gap: 4px;
+      }
     }
 
     .projections {
       grid-area: projections;
+
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      background-color: $light-blue-2;
+      border-radius: 16px;
+
+      &__caption {
+        font-size: 14px;
+      }
     }
 
     .revenue-chart {

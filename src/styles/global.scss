@@ -27,5 +27,5 @@ body {
   color: $main-color;
   background-color: $main-bg;
   display: grid;
-  grid-template-columns: 212px 1fr 280px;
+  grid-template-columns: auto 1fr auto;
 }

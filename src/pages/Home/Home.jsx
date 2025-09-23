@@ -1,4 +1,8 @@
 import "./Home.scss";
+import WorldMap from "../../assets/images/world-map.svg";
+import { revenueByLocation as revenues } from "../../data";
+
+import RevenueItem from "./RevenueItem";
 
 import { Bar } from "react-chartjs-2";
 import {
@@ -87,7 +91,7 @@ function Home() {
       <div className="overview">
         <div className="summary overview__section">
           <div className="summary__card customers">
-            <h3 className="summary__title">Customers</h3>
+            <h3 className="overview__title">Customers</h3>
 
             <div className="summary__info">
               <div className="summary__value">3,781</div>
@@ -102,8 +106,8 @@ function Home() {
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
+                    fillRule="evenodd"
+                    clipRule="evenodd"
                     d="M8.45488 5.60777L14 4L12.6198 9.6061L10.898 7.9532L8.12069 10.8463C8.02641 10.9445 7.89615 11 7.76 11C7.62385 11 7.49359 10.9445 7.39931 10.8463L5.36 8.72199L2.36069 11.8463C2.16946 12.0455 1.85294 12.0519 1.65373 11.8607C1.45453 11.6695 1.44807 11.3529 1.63931 11.1537L4.99931 7.65373C5.09359 7.55552 5.22385 7.5 5.36 7.5C5.49615 7.5 5.62641 7.55552 5.72069 7.65373L7.76 9.77801L10.1766 7.26067L8.45488 5.60777Z"
                     fill="#1C1C1C"
                   />
@@ -113,7 +117,7 @@ function Home() {
           </div>
 
           <div className="summary__card orders">
-            <h3 className="summary__title">Orders</h3>
+            <h3 className="overview__title">Orders</h3>
 
             <div className="summary__info">
               <div className="summary__value">1,219</div>
@@ -128,8 +132,8 @@ function Home() {
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
+                    fillRule="evenodd"
+                    clipRule="evenodd"
                     d="M8.45488 5.60777L14 4L12.6198 9.6061L10.898 7.9532L8.12069 10.8463C8.02641 10.9445 7.89615 11 7.76 11C7.62385 11 7.49359 10.9445 7.39931 10.8463L5.36 8.72199L2.36069 11.8463C2.16946 12.0455 1.85294 12.0519 1.65373 11.8607C1.45453 11.6695 1.44807 11.3529 1.63931 11.1537L4.99931 7.65373C5.09359 7.55552 5.22385 7.5 5.36 7.5C5.49615 7.5 5.62641 7.55552 5.72069 7.65373L7.76 9.77801L10.1766 7.26067L8.45488 5.60777Z"
                     fill="#1C1C1C"
                   />
@@ -139,7 +143,7 @@ function Home() {
           </div>
 
           <div className="summary__card revenue">
-            <h3 className="summary__title">Revenue</h3>
+            <h3 className="overview__title">Revenue</h3>
 
             <div className="summary__info">
               <div className="summary__value">$695</div>
@@ -154,8 +158,8 @@ function Home() {
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
+                    fillRule="evenodd"
+                    clipRule="evenodd"
                     d="M8.45488 5.60777L14 4L12.6198 9.6061L10.898 7.9532L8.12069 10.8463C8.02641 10.9445 7.89615 11 7.76 11C7.62385 11 7.49359 10.9445 7.39931 10.8463L5.36 8.72199L2.36069 11.8463C2.16946 12.0455 1.85294 12.0519 1.65373 11.8607C1.45453 11.6695 1.44807 11.3529 1.63931 11.1537L4.99931 7.65373C5.09359 7.55552 5.22385 7.5 5.36 7.5C5.49615 7.5 5.62641 7.55552 5.72069 7.65373L7.76 9.77801L10.1766 7.26067L8.45488 5.60777Z"
                     fill="#1C1C1C"
                   />
@@ -165,7 +169,7 @@ function Home() {
           </div>
 
           <div className="summary__card growth">
-            <h3 className="summary__title">Growth</h3>
+            <h3 className="overview__title">Growth</h3>
 
             <div className="summary__info">
               <div className="summary__value">30.1%</div>
@@ -180,8 +184,8 @@ function Home() {
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
+                    fillRule="evenodd"
+                    clipRule="evenodd"
                     d="M8.45488 5.60777L14 4L12.6198 9.6061L10.898 7.9532L8.12069 10.8463C8.02641 10.9445 7.89615 11 7.76 11C7.62385 11 7.49359 10.9445 7.39931 10.8463L5.36 8.72199L2.36069 11.8463C2.16946 12.0455 1.85294 12.0519 1.65373 11.8607C1.45453 11.6695 1.44807 11.3529 1.63931 11.1537L4.99931 7.65373C5.09359 7.55552 5.22385 7.5 5.36 7.5C5.49615 7.5 5.62641 7.55552 5.72069 7.65373L7.76 9.77801L10.1766 7.26067L8.45488 5.60777Z"
                     fill="#1C1C1C"
                   />
@@ -192,9 +196,12 @@ function Home() {
         </div>
 
         <div className="projections overview__section">
-          <h3 className="projections__caption">Projections vs Actuals</h3>
+          <h3 className="overview__title">Projections vs Actuals</h3>
 
-          <div className="projections__chart">
+          <div
+            className="projections__chart"
+            style={{ width: "384px", height: "168px" }}
+          >
             <Bar data={data} options={options} />
           </div>
         </div>
@@ -202,7 +209,22 @@ function Home() {
         <div className="revenue-chart overview__section">Revenue Chart</div>
 
         <div className="revenue-by-location overview__section">
-          Revenue by Location
+          <h3 className="overview__title">Revenue by Location</h3>
+
+          <div className="rbl__map">
+            <img src={WorldMap} alt="World Map svg" />
+          </div>
+
+          <ul className="rbl__cities">
+            {revenues.map((revenue) => (
+              <RevenueItem
+                key={revenue.id}
+                title={revenue.title}
+                revenue={revenue.revenue}
+                progress={revenue.progress}
+              />
+            ))}
+          </ul>
         </div>
 
         <div className="top-selling-products overview__section">

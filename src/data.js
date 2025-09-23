@@ -194,3 +194,30 @@ export const contacts = [
     text: "Koray Okumus",
   },
 ];
+
+export const revenueByLocation = [
+  {
+    id: "new-york",
+    title: "New York",
+    revenue: "72K",
+    progress: 74,
+  },
+  {
+    id: "san-francisco",
+    title: "San Francisco",
+    revenue: "39K",
+    progress: 41,
+  },
+  {
+    id: "sydney",
+    title: "Sydney",
+    revenue: "25K",
+    progress: 48,
+  },
+  {
+    id: "singapore",
+    title: "Singapore",
+    revenue: "61K",
+    progress: 61,
+  },
+];

@@ -47,13 +47,12 @@
 
         &--text {
           font-size: 14px;
-          white-space: nowrap;
-          overflow: hidden;
-          text-overflow: ellipsis;
+          @include ellipsisOneLine;
         }
 
         &--subtext {
           font-size: 12px;
+          line-height: 18px;
           color: $secondary-color;
         }
       }

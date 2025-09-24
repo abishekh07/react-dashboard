@@ -221,3 +221,68 @@ export const revenueByLocation = [
     progress: 61,
   },
 ];
+
+export const topSellingProducts = [
+  {
+    id: "product-1",
+    title: "ASOS Ridley High Waist",
+    price: "$79.49",
+    quantity: 82,
+    amount: "$6,518.18",
+  },
+  {
+    id: "product-2",
+    title: "Marco Lightweight Shirt",
+    price: "$128.50",
+    quantity: 37,
+    amount: "$4,754.50",
+  },
+  {
+    id: "product-3",
+    title: "Half Sleeve Shirt",
+    price: "$39.99",
+    quantity: 64,
+    amount: "$2,559.36",
+  },
+  {
+    id: "product-4",
+    title: "Lightweight Jacket",
+    price: "$20.00",
+    quantity: 184,
+    amount: "$3,680.00",
+  },
+  {
+    id: "product-5",
+    title: "Marco Shoes",
+    price: "$79.49",
+    quantity: 64,
+    amount: "$1,965.81",
+  },
+];
+
+export const totalSales = [
+  {
+    id: "tot-sales-1",
+    title: "Direct",
+    amount: 300.56,
+    color: "#1c1c1c",
+  },
+  {
+    id: "tot-sales-2",
+    title: "Affiliate",
+    amount: 135.18,
+    color: "#BAEDBD",
+  },
+  {
+    id: "tot-sales-3",
+    title: "Sponsored",
+    amount: 154.02,
+    color: "#95A4FC",
+  },
+  {
+    id: "tot-sales-4",
+    title: "E-mail",
+    amount: 48.96,
+    color: "#B1E3FF",
+  },
+];

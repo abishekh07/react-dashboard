@@ -123,6 +123,8 @@
         &__item {
           display: none;
           padding: 4px 8px 4px 0;
+          width: 110px;
+          @include ellipsisOneLine;
         }
       }
 

@@ -1,15 +1,20 @@
 import "./Home.scss";
 import WorldMap from "../../assets/images/world-map.svg";
-import { revenueByLocation as revenues } from "../../data";
+import {
+  topSellingProducts,
+  totalSales,
+  revenueByLocation as revenues,
+} from "../../data";
 
 import RevenueItem from "./RevenueItem";
 
-import { Bar } from "react-chartjs-2";
+import { Bar, Doughnut } from "react-chartjs-2";
 import {
   Chart as ChartJS,
   CategoryScale,
   LinearScale,
   BarElement,
+  ArcElement,
   Title,
   Tooltip,
   Legend,
@@ -19,6 +24,7 @@ ChartJS.register(
   CategoryScale,
   LinearScale,
   BarElement,
+  ArcElement,
   Title,
   Tooltip,
   Legend
@@ -28,7 +34,7 @@ function Home() {
   const actualValues = [17, 20, 18, 22, 15, 19];
   const projectedValues = actualValues.map((v) => v + 5);
 
-  const data = {
+  const barGraphData = {
     labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
     datasets: [
       {
@@ -52,7 +58,7 @@ function Home() {
     ],
   };
 
-  const options = {
+  const barGraphOptions = {
     responsive: true,
     plugins: {
       legend: { display: false },
@@ -79,6 +85,44 @@ function Home() {
         },
         grid: {
           color: "rgba(0,0,0,0.05)",
+        },
+      },
+    },
+  };
+
+  const doughnutChartData = {
+    labels: ["Direct", "Affiliate", "E-mail", "Sponsored"],
+    datasets: [
+      {
+        data: [34, 38, 10, 18],
+        backgroundColor: ["#1c1c1c", "#BAEDBD", "#B1E3FF", "#95A4FC"],
+        borderRadius: 10,
+        spacing: 4,
+      },
+    ],
+  };
+
+  const doughnutChartOptions = {
+    cutout: "60%",
+    plugins: {
+      legend: {
+        display: false,
+      },
+      tooltip: {
+        enabled: true,
+        backgroundColor: "#3a3a3a",
+        titleColor: "transparent",
+        titleMarginBottom: 0,
+        bodyColor: "#fff",
+        padding: 10,
+        bodyFont: {
+          size: 16,
+        },
+        borderRadius: 8,
+        callbacks: {
+          label: function (context) {
+            return `${context.parsed}%`;
+          },
         },
       },
     },
@@ -121,7 +165,7 @@ function Home() {
 
             <div className="summary__info">
               <div className="summary__value">1,219</div>
-              <div className="summary__delta">
+              <div className="summary__delta negative">
                 <span>-0.03%</span>
 
                 <svg
@@ -202,11 +246,13 @@ function Home() {
             className="projections__chart"
             style={{ width: "384px", height: "168px" }}
           >
-            <Bar data={data} options={options} />
+            <Bar data={barGraphData} options={barGraphOptions} />
           </div>
         </div>
 
-        <div className="revenue-chart overview__section">Revenue Chart</div>
+        <div className="revenue-chart overview__section">
+          <h3 className="overview__title">Revenue Chart</h3>
+        </div>
 
         <div className="revenue-by-location overview__section">
           <h3 className="overview__title">Revenue by Location</h3>
@@ -228,10 +274,57 @@ function Home() {
         </div>
 
         <div className="top-selling-products overview__section">
-          Top Selling Products
+          <h3 className="overview__title">Top Selling Products</h3>
+
+          <div className="tsp-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Price</th>
+                  <th>Quantity</th>
+                  <th>Amount</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                {topSellingProducts.map((prod) => (
+                  <tr key={prod.id}>
+                    <td>{prod.title}</td>
+                    <td>{prod.price}</td>
+                    <td>{prod.quantity}</td>
+                    <td>{prod.amount}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
 
-        <div className="total-sales overview__section">Total Sales</div>
+        <div className="total-sales overview__section">
+          <h3 className="overview__title">Total Sales</h3>
+
+          <div className="total-sales__chart">
+            <Doughnut data={doughnutChartData} options={doughnutChartOptions} />
+          </div>
+
+          <table className="total-sales__table">
+            <tbody>
+              {totalSales.map((sale) => (
+                <tr key={sale.id}>
+                  <td>
+                    <div className="total-sales__color">
+                      <span style={{ backgroundColor: `${sale.color}` }}></span>
+                    </div>
+                    <div>{sale.title}</div>
+                  </td>
+
+                  <td>${sale.amount}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   );

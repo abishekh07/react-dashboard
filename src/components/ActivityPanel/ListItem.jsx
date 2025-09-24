@@ -19,9 +19,11 @@ function ListItem({
       </div>
 
       <div className="list__item-info">
-        <p className="list__item-info--text">{text}</p>
+        <p className="list__item-info--text" title={text}>
+          {text}
+        </p>
 
-        {subtext && <span className="list__item-info--subtext">{subtext}</span>}
+        {subtext && <div className="list__item-info--subtext">{subtext}</div>}
       </div>
     </li>
   );

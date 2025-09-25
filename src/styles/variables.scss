@@ -1,18 +1,68 @@
-/* Core Text and BG Colors */
+/* Light Theme Colors */
 
-$main-bg: #ffffff;
-$main-color: #1c1c1c;
-$secondary-color: rgba(28, 28, 28, 0.4);
-$tertiary-color: rgba(28, 28, 28, 0.2);
-$tab-hover-color: rgba(28, 28, 28, 0.05);
-$input-bg-color: rgba(28, 28, 28, 0.05);
+$main-bg-light: #ffffff;
+$main-color-light: #1c1c1c;
+$color-black: #1c1c1c;
+$secondary-color-light: rgba(28, 28, 28, 0.4);
+$tertiary-color-light: rgba(28, 28, 28, 0.2);
+$tab-hover-color-light: rgba(28, 28, 28, 0.05);
+$input-bg-color-light: rgba(28, 28, 28, 0.05);
 $border-light: rgba(28, 28, 28, 0.1);
-
-/* Other Colors */
 
 $light-blue-1: #e3f5ff;
 $light-blue-2: #f7f9fb;
 $light-purple: #e5ecf6;
 
-$progress-track-color: #e5eef5;
-$progress-track-fill: #a9c5da;
+$progress-track-color-light: #e5eef5;
+$progress-track-fill-light: #a8c5da;
+
+/* Dark Theme Colors */
+
+$main-bg-dark: #2d2d2d;
+$main-color-dark: #fff;
+$secondary-color-dark: rgba(255, 255, 255, 0.4);
+$tertiary-color-dark: rgba(255, 255, 255, 0.2);
+$tab-hover-color-dark: rgba(255, 255, 255, 0.05);
+$input-bg-color-dark: rgba(255, 255, 255, 0.05);
+$border-dark: rgba(255, 255, 255, 0.1);
+
+$dark-blue-1: #e3f5ff;
+$dark-blue-2: #282828;
+$dark-purple: #e5ecf6;
+
+$progress-track-color-dark: rgba(28, 28, 28, 0.2);
+$progress-track-fill-dark: #a8c5da;
+
+html {
+  --main-bg: #{$main-bg-light};
+  --main-color: #{$main-color-light};
+  --color-black: #{$color-black};
+  --secondary-color: #{$secondary-color-light};
+  --tertiary-color: #{$tertiary-color-light};
+  --tab-hover-color: #{$tab-hover-color-light};
+  --input-bg-color: #{$input-bg-color-light};
+
+  --primary-blue-1: #{$light-blue-1};
+  --primary-blue-2: #{$light-blue-2};
+  --primary-purple: #{$light-purple};
+
+  --progress-track-color: #{$progress-track-color-light};
+  --progress-track-fill: #{$progress-track-fill-light};
+}
+
+html.theme-dark {
+  --main-bg: #{$main-bg-dark};
+  --main-color: #{$main-color-dark};
+  --color-black: #{$color-black};
+  --secondary-color: #{$secondary-color-dark};
+  --tertiary-color: #{$tertiary-color-dark};
+  --tab-hover-color: #{$tab-hover-color-dark};
+  --input-bg-color: #{$input-bg-color-dark};
+
+  --primary-blue-1: #{$dark-blue-1};
+  --primary-blue-2: #{$dark-blue-2};
+  --primary-purple: #{$dark-purple};
+
+  --progress-track-color: #{$progress-track-color-dark};
+  --progress-track-fill: #{$progress-track-fill-dark};
+}

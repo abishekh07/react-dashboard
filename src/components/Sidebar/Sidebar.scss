@@ -3,32 +3,25 @@
 
 .Sidebar {
   padding: 20px 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+  @include flexColumn(16px);
   font-size: 14px;
   border-right: 1px solid $border-light;
 
   .logo {
     @include alignCenter;
-    margin: 4px;
-
-    img {
-      margin-right: 8px;
-    }
+    gap: 8px;
+    padding: 4px;
   }
 
   .favourites {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
+    @include flexColumn(4px);
 
     &__tabs {
       display: flex;
       gap: 8px;
 
       &-btn {
-        color: $tertiary-color;
+        color: var(--tertiary-color);
         background-color: transparent;
         border: none;
         padding: 4px 8px;
@@ -36,7 +29,7 @@
         font-size: 14px;
 
         &.active {
-          color: $secondary-color;
+          color: var(--secondary-color);
         }
       }
     }
@@ -44,9 +37,7 @@
     &__content {
       &-list {
         list-style: none;
-        display: flex;
-        flex-direction: column;
-        gap: 4px;
+        @include flexColumn(4px);
 
         &--item {
           padding: 4px 28px;
@@ -61,7 +52,7 @@
             width: 6px;
             height: 6px;
             border-radius: 50%;
-            background-color: $tertiary-color;
+            background-color: var(--tertiary-color);
           }
         }
       }
@@ -69,15 +60,13 @@
   }
 
   .menu {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
+    @include flexColumn(16px);
 
     &__item {
       h2 {
         font-size: 14px;
         font-weight: normal;
-        color: $secondary-color;
+        color: var(--secondary-color);
         padding: 4px 0;
         margin-left: 10px;
         margin-bottom: 8px;
@@ -85,9 +74,7 @@
     }
 
     &__list {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
+      @include flexColumn(4px);
 
       &-item {
         &--info {
@@ -116,9 +103,7 @@
       .submenu {
         list-style: none;
         padding-left: 48px;
-        display: flex;
-        flex-direction: column;
-        gap: 4px;
+        @include flexColumn(4px);
 
         &__item {
           display: none;

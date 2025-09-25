@@ -103,7 +103,8 @@ function Home() {
   };
 
   const doughnutChartOptions = {
-    cutout: "60%",
+    cutout: "55%",
+    maintainAspectRatio: false,
     plugins: {
       legend: {
         display: false,
@@ -111,8 +112,6 @@ function Home() {
       tooltip: {
         enabled: true,
         backgroundColor: "#3a3a3a",
-        titleColor: "transparent",
-        titleMarginBottom: 0,
         bodyColor: "#fff",
         padding: 10,
         bodyFont: {
@@ -127,6 +126,21 @@ function Home() {
       },
     },
   };
+
+  const revenueChartLegends = [
+    {
+      id: "current-week",
+      color: "#1C1C1C",
+      title: "Current Week",
+      info: "$58,211",
+    },
+    {
+      id: "previous-week",
+      color: "#A8C5DA",
+      title: "Previous Week",
+      info: "$68,768",
+    },
+  ];
 
   return (
     <div className="Home">
@@ -251,7 +265,27 @@ function Home() {
         </div>
 
         <div className="revenue-chart overview__section">
-          <h3 className="overview__title">Revenue Chart</h3>
+          <div className="rc__header">
+            <h3 className="overview__title">Revenue</h3>
+
+            <div className="rc__partition">|</div>
+
+            {revenueChartLegends.map((rcLegend) => (
+              <div className="rc__legend" key={rcLegend.id}>
+                <div className="rc__legend-color">
+                  <span style={{ backgroundColor: `${rcLegend.color}` }}></span>
+                </div>
+
+                <div className="rc__legend-info">
+                  <span className="rc__legend-info--title">
+                    {rcLegend.title}
+                  </span>
+
+                  <span className="rc__legend-info--rate">{rcLegend.info}</span>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
         <div className="revenue-by-location overview__section">

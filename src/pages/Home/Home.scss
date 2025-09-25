@@ -3,9 +3,7 @@
 
 .Home {
   padding: 28px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+  @include flexColumn(16px);
 
   .overview {
     display: grid;
@@ -32,7 +30,7 @@
       &:not(:first-of-type) {
         padding: 24px;
         border-radius: 16px;
-        background-color: $light-blue-2;
+        background-color: var(--primary-blue-2);
       }
     }
 
@@ -46,27 +44,30 @@
 
       &__card {
         padding: 24px;
-        display: flex;
-        flex-direction: column;
+        @include flexColumn(8px);
         align-items: flex-start;
-        gap: 8px;
         height: fit-content;
         border-radius: 16px;
 
+        &.customers,
+        &.growth {
+          color: var(--color-black);
+        }
+
         &.customers {
-          background-color: $light-blue-1;
+          background-color: var(--primary-blue-1);
         }
 
         &.orders {
-          background-color: $light-blue-2;
+          background-color: var(--primary-blue-2);
         }
 
         &.revenue {
-          background-color: $light-blue-2;
+          background-color: var(--primary-blue-2);
         }
 
         &.growth {
-          background-color: $light-purple;
+          background-color: var(--primary-purple);
         }
       }
 
@@ -98,21 +99,46 @@
     .projections {
       grid-area: projections;
 
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
+      @include flexColumn(16px);
     }
 
     .revenue-chart {
       grid-area: revenue-chart;
+
+      .rc {
+        &__header {
+          @include alignCenter;
+          gap: 16px;
+        }
+
+        &__partition {
+          color: var(--tertiary-color);
+        }
+
+        &__legend {
+          @include alignCenter;
+
+          &-color {
+            @include colorBubble;
+          }
+
+          &-info {
+            font-size: 12px;
+            line-height: 18px;
+
+            &--rate {
+              font-weight: 600;
+              padding-left: 4px;
+            }
+          }
+        }
+      }
     }
 
     .revenue-by-location {
       grid-area: revenue-by-location;
 
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
+      @include flexColumn(16px);
 
       .rbl {
         &__map {
@@ -125,9 +151,7 @@
         }
 
         &__cities {
-          display: flex;
-          flex-direction: column;
-          gap: 16px;
+          @include flexColumn(16px);
         }
 
         &__city {
@@ -148,13 +172,13 @@
             &--track {
               height: 2px;
               border-radius: 80px;
-              background-color: $progress-track-color;
+              background-color: $progress-track-color-light;
               position: relative;
               overflow: hidden;
             }
 
             &--fill {
-              background-color: $progress-track-fill;
+              background-color: $progress-track-fill-light;
               position: absolute;
               left: 0;
               z-index: 2;
@@ -169,20 +193,35 @@
     .top-selling-products {
       grid-area: top-selling-products;
 
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
+      @include flexColumn(4px);
 
       .tsp-table {
         margin-bottom: 24px;
         font-size: 12px;
+        border-collapse: collapse;
+        border-spacing: 0;
+        width: 100%;
+
+        thead {
+          position: relative;
+
+          &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 1px;
+            background: var(--tertiary-color);
+            pointer-events: none;
+          }
+        }
 
         th {
-          color: $secondary-color;
+          color: var(--secondary-color);
           text-align: start;
           line-height: 18px;
           font-weight: 400;
-          border-bottom: 1px solid $tertiary-color;
         }
 
         th,
@@ -207,9 +246,7 @@
     .total-sales {
       grid-area: total-sales;
 
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
+      @include flexColumn(16px);
 
       &__chart {
         @include alignAllCenter;
@@ -234,16 +271,7 @@
       }
 
       &__color {
-        width: 16px;
-        height: 16px;
-        @include alignAllCenter;
-
-        span {
-          display: inline-block;
-          width: 6px;
-          height: 6px;
-          border-radius: 50%;
-        }
+        @include colorBubble;
       }
     }
   }

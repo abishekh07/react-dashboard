@@ -6,15 +6,37 @@ import RefreshIcon from "../../assets/icons/refresh.svg";
 import NotificationsIcon from "../../assets/icons/notification.svg";
 import SearchIcon from "../../assets/icons/search.svg";
 
-import { useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 
 function Topbar() {
+  const [darkMode, setDarkMode] = useState(false);
+
   const currPage = "Default";
   const inputRef = useRef(null);
 
   function handleFocus() {
     inputRef.current?.focus();
   }
+
+  function toggleTheme() {
+    setDarkMode(!darkMode);
+  }
+
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("theme");
+
+    if (savedTheme === "theme-dark") setDarkMode(true);
+  }, []);
+
+  useEffect(() => {
+    if (darkMode) {
+      localStorage.setItem("theme", "theme-dark");
+      document.documentElement.classList.add("theme-dark");
+    } else {
+      localStorage.setItem("theme", "theme-light");
+      document.documentElement.classList.remove("theme-dark");
+    }
+  }, [darkMode]);
 
   return (
     <div className="topbar">
@@ -61,6 +83,7 @@ function Topbar() {
           <button
             className="navigation__button"
             aria-label="Light Mode / Dark Mode Toggle"
+            onClick={toggleTheme}
           >
             <img src={ThemeToggleIcon} alt="Theme Toggle Icon" />
           </button>

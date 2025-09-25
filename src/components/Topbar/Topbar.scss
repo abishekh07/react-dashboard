@@ -29,11 +29,11 @@
       }
 
       &__category {
-        color: $secondary-color;
+        color: var(--secondary-color);
       }
 
       .divider {
-        color: $tertiary-color;
+        color: var(--tertiary-color);
       }
     }
   }
@@ -43,7 +43,7 @@
     gap: 20px;
 
     .search {
-      background-color: $input-bg-color;
+      background-color: $input-bg-color-light;
       padding: 4px 8px;
       @include alignCenter;
       gap: 8px;
@@ -74,7 +74,7 @@
         border: none;
         background: transparent;
         margin: 0;
-        color: $tertiary-color;
+        color: var(--tertiary-color);
       }
     }
 

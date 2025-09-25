@@ -24,8 +24,8 @@ body {
 }
 
 .main {
-  color: $main-color;
-  background-color: $main-bg;
+  color: var(--main-color);
+  background-color: var(--main-bg);
   display: grid;
   grid-template-columns: auto 1fr auto;
 }

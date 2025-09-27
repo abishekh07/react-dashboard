@@ -1,7 +1,7 @@
 import Home from "./pages/Home/Home";
 import Orders from "./pages/Orders/Orders";
 import Sidebar from "./components/Sidebar/Sidebar";
-import Topbar from "./components/TopBar/Topbar";
+import Topbar from "./components/Topbar/Topbar";
 import ActivityPanel from "./components/ActivityPanel/ActivityPanel";
 
 import "./styles/global.scss";

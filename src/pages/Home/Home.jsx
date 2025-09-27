@@ -4,6 +4,11 @@ import {
   topSellingProducts,
   totalSales,
   revenueByLocation as revenues,
+  barGraphData,
+  barGraphOptions,
+  doughnutChartData,
+  doughnutChartOptions,
+  revenueChartLegends,
 } from "../../data";
 
 import RevenueItem from "./RevenueItem";
@@ -31,117 +36,6 @@ ChartJS.register(
 );
 
 function Home() {
-  const actualValues = [17, 20, 18, 22, 15, 19];
-  const projectedValues = actualValues.map((v) => v + 5);
-
-  const barGraphData = {
-    labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
-    datasets: [
-      {
-        label: "Projections",
-        data: projectedValues,
-        backgroundColor: "rgba(168, 197, 218, 0.5)",
-        borderRadius: 4,
-        barPercentage: 0.7,
-        categoryPercentage: 0.8,
-        grouped: false,
-      },
-      {
-        label: "Actuals",
-        data: actualValues,
-        backgroundColor: "rgba(168, 197, 218, 1)",
-        borderRadius: 0,
-        barPercentage: 0.7,
-        categoryPercentage: 0.8,
-        grouped: false,
-      },
-    ],
-  };
-
-  const barGraphOptions = {
-    responsive: true,
-    plugins: {
-      legend: { display: false },
-    },
-    scales: {
-      x: {
-        offset: true,
-        ticks: {
-          color: "rgba(28, 28, 28, 0.4)",
-          font: {
-            size: 12,
-          },
-        },
-        grid: { display: false },
-      },
-      y: {
-        beginAtZero: true,
-        ticks: {
-          color: "rgba(28, 28, 28, 0.4)",
-          font: {
-            size: 12,
-          },
-          callback: (value) => (value > 0 ? value + "M" : value),
-        },
-        grid: {
-          color: "rgba(0,0,0,0.05)",
-        },
-      },
-    },
-  };
-
-  const doughnutChartData = {
-    labels: ["Direct", "Affiliate", "E-mail", "Sponsored"],
-    datasets: [
-      {
-        data: [34, 38, 10, 18],
-        backgroundColor: ["#1c1c1c", "#BAEDBD", "#B1E3FF", "#95A4FC"],
-        borderRadius: 10,
-        spacing: 4,
-      },
-    ],
-  };
-
-  const doughnutChartOptions = {
-    cutout: "55%",
-    maintainAspectRatio: false,
-    plugins: {
-      legend: {
-        display: false,
-      },
-      tooltip: {
-        enabled: true,
-        backgroundColor: "#3a3a3a",
-        bodyColor: "#fff",
-        padding: 10,
-        bodyFont: {
-          size: 16,
-        },
-        borderRadius: 8,
-        callbacks: {
-          label: function (context) {
-            return `${context.parsed}%`;
-          },
-        },
-      },
-    },
-  };
-
-  const revenueChartLegends = [
-    {
-      id: "current-week",
-      color: "#1C1C1C",
-      title: "Current Week",
-      info: "$58,211",
-    },
-    {
-      id: "previous-week",
-      color: "#A8C5DA",
-      title: "Previous Week",
-      info: "$68,768",
-    },
-  ];
-
   return (
     <div className="Home">
       <h2 className="overview__caption">eCommerce</h2>

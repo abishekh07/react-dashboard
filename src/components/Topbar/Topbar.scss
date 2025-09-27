@@ -13,6 +13,7 @@
     margin: 0;
     border: none;
     background-color: transparent;
+    color: var(--icon-fill-color);
   }
 
   &__left {
@@ -43,7 +44,7 @@
     gap: 20px;
 
     .search {
-      background-color: $input-bg-color-light;
+      background-color: var(--input-bg-color);
       padding: 4px 8px;
       @include alignCenter;
       gap: 8px;
@@ -61,9 +62,11 @@
         margin: 0;
         cursor: pointer;
         padding: 2px 0;
+        color: var(--icon-fill-color);
       }
 
       &__input {
+        color: var(--main-color);
         background-color: transparent;
         border: none;
         outline: none;

@@ -1,15 +1,13 @@
 import "./Topbar.scss";
 
-import { useState, useRef, useEffect, useLayoutEffect } from "react";
+import { useRef, useEffect, useLayoutEffect } from "react";
 import { SidebarIcon } from "../../icons/SidebarIcon";
 import { FavoritesIcon } from "../../icons/FavoritesIcon";
 import { ThemeToggleIcon } from "../../icons/ThemeToggleIcon";
 import { RefreshIcon } from "../../icons/RefreshIcon";
 import { SearchIcon } from "../../icons/SearchIcon";
 
-function Topbar() {
-  const [darkMode, setDarkMode] = useState(false);
-
+function Topbar({ darkMode, onToggle }) {
   const currPage = "Default";
   const inputRef = useRef(null);
 
@@ -17,25 +15,23 @@ function Topbar() {
     inputRef.current?.focus();
   }
 
-  function toggleTheme() {
-    setDarkMode(!darkMode);
-  }
-
   useLayoutEffect(() => {
     const savedTheme = localStorage.getItem("theme");
 
-    if (savedTheme === "theme-dark") setDarkMode(true);
-  }, []);
+    if (savedTheme === "theme-dark") onToggle(true);
+  });
 
   useEffect(() => {
     if (darkMode) {
       localStorage.setItem("theme", "theme-dark");
       document.documentElement.classList.add("theme-dark");
+      onToggle(true);
     } else {
       localStorage.setItem("theme", "theme-light");
       document.documentElement.classList.remove("theme-dark");
+      onToggle(false);
     }
-  }, [darkMode]);
+  }, [darkMode, onToggle]);
 
   return (
     <div className="topbar">
@@ -82,7 +78,7 @@ function Topbar() {
           <button
             className="navigation__button"
             aria-label="Light Mode / Dark Mode Toggle"
-            onClick={toggleTheme}
+            onClick={() => onToggle(!darkMode)}
           >
             <ThemeToggleIcon width={20} height={20} />
           </button>

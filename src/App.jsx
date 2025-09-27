@@ -6,6 +6,8 @@ import ActivityPanel from "./components/ActivityPanel/ActivityPanel";
 
 import "./styles/global.scss";
 
+import { useState } from "react";
+
 import {
   createBrowserRouter,
   RouterProvider,
@@ -35,8 +37,14 @@ function App() {
 }
 
 function Layout() {
+  const [darkMode, setDarkMode] = useState(false);
+
   const location = useLocation();
   const showNotifications = location.pathname !== "/orders";
+
+  function handleToggleDarkMode(value) {
+    setDarkMode(value);
+  }
 
   return (
     <div className="main">
@@ -44,11 +52,11 @@ function Layout() {
 
       <div className="container">
         <div className="navContainer">
-          <Topbar />
+          <Topbar darkMode={darkMode} onToggle={handleToggleDarkMode} />
         </div>
 
         <div className="contentContainer">
-          <Outlet />
+          <Outlet context={{ isDarkMode: darkMode }} />
         </div>
       </div>
 

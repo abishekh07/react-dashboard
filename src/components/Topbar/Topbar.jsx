@@ -1,6 +1,6 @@
 import "./Topbar.scss";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useLayoutEffect } from "react";
 import { SidebarIcon } from "../../icons/SidebarIcon";
 import { FavoritesIcon } from "../../icons/FavoritesIcon";
 import { ThemeToggleIcon } from "../../icons/ThemeToggleIcon";
@@ -21,7 +21,7 @@ function Topbar() {
     setDarkMode(!darkMode);
   }
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const savedTheme = localStorage.getItem("theme");
 
     if (savedTheme === "theme-dark") setDarkMode(true);

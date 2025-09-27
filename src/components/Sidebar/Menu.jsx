@@ -3,6 +3,7 @@ import "./Sidebar.scss";
 import { menu } from "../../data";
 import { useState } from "react";
 
+import { IconComponent } from "./IconComponent";
 import { DropdownIcon } from "../../icons/DropdownIcon";
 
 function Menu() {
@@ -41,7 +42,7 @@ function Menu() {
                       <span></span>
                     )}
 
-                    <img src={`/icons/${listItem.icon}`} />
+                    <IconComponent listItem={listItem} />
 
                     <span>{listItem.title}</span>
                   </div>

@@ -1,2 +1,61 @@
-.Orders {
+@use "../../styles/mixins.scss" as *;
+@use "../../styles/variables.scss" as *;
+
+.orders {
+  padding: 28px;
+
+  @include flexColumn(16px);
+
+  &__caption {
+    font-size: 14px;
+    padding: 4px 8px;
+  }
+
+  &__refine-panel {
+    @include spaceBetween;
+
+    background-color: var(--primary-blue-2);
+    padding: 8px;
+    border-radius: 8px;
+  }
+
+  &__filter {
+    @include alignCenter;
+    gap: 8px;
+
+    &-btn {
+      @include iconBtnReset;
+      @include alignAllCenter;
+
+      width: 28px;
+      height: 28px;
+      padding: 0;
+    }
+  }
+
+  &__search {
+    @include alignCenter;
+    gap: 8px;
+    padding: 4px 8px;
+    border-radius: 8px;
+    background-color: var(--orders-search-bg);
+    border: 1px solid var(--input-border-color);
+
+    &-bar {
+      @include alignCenter;
+      gap: 4px;
+    }
+
+    &-icon {
+      @include iconBtnReset;
+    }
+
+    &-input {
+      color: var(--main-color);
+      background-color: transparent;
+      border: none;
+      outline: none;
+      width: 96px;
+    }
+  }
 }

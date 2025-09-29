@@ -7,7 +7,8 @@ $secondary-color-light: rgba(28, 28, 28, 0.4);
 $tertiary-color-light: rgba(28, 28, 28, 0.2);
 $tab-hover-color-light: rgba(28, 28, 28, 0.05);
 $input-bg-color-light: rgba(28, 28, 28, 0.05);
-$border-light: rgba(28, 28, 28, 0.1);
+$input-border-light: rgba(28, 28, 28, 0.1);
+$orders-search-bg-light: rgba(255, 255, 255, 0.4);
 
 $light-blue-1: #e3f5ff;
 $light-blue-2: #f7f9fb;
@@ -26,7 +27,8 @@ $secondary-color-dark: rgba(255, 255, 255, 0.4);
 $tertiary-color-dark: rgba(255, 255, 255, 0.2);
 $tab-hover-color-dark: rgba(255, 255, 255, 0.05);
 $input-bg-color-dark: rgba(255, 255, 255, 0.05);
-$border-dark: rgba(255, 255, 255, 0.1);
+$input-border-dark: rgba(255, 255, 255, 0.1);
+$orders-search-bg-dark: rgba(28, 28, 28, 0.4);
 
 $dark-blue-1: #e3f5ff;
 $dark-blue-2: #282828;
@@ -45,6 +47,8 @@ html {
   --tertiary-color: #{$tertiary-color-light};
   --tab-hover-color: #{$tab-hover-color-light};
   --input-bg-color: #{$input-bg-color-light};
+  --input-border-color: #{$input-border-light};
+  --orders-search-bg: #{$orders-search-bg-light};
 
   --primary-blue-1: #{$light-blue-1};
   --primary-blue-2: #{$light-blue-2};
@@ -64,6 +68,8 @@ html.theme-dark {
   --tertiary-color: #{$tertiary-color-dark};
   --tab-hover-color: #{$tab-hover-color-dark};
   --input-bg-color: #{$input-bg-color-dark};
+  --input-border-color: #{$input-border-dark};
+  --orders-search-bg: #{$orders-search-bg-dark};
 
   --primary-blue-1: #{$dark-blue-1};
   --primary-blue-2: #{$dark-blue-2};

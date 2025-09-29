@@ -3,7 +3,7 @@
 
 .activity-panel {
   padding: 20px;
-  border-left: 1px solid $border-light;
+  border-left: 1px solid var(--input-border-color);
   @include flexColumn(24px);
 
   .list {

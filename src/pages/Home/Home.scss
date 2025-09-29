@@ -105,6 +105,8 @@
     .revenue-chart {
       grid-area: revenue-chart;
 
+      @include flexColumn(16px);
+
       .rc {
         &__header {
           @include alignCenter;

@@ -11,13 +11,15 @@ import {
 
 import RevenueItem from "./RevenueItem";
 
-import { Bar, Doughnut } from "react-chartjs-2";
+import { Line, Bar, Doughnut } from "react-chartjs-2";
 import {
   Chart as ChartJS,
   CategoryScale,
   LinearScale,
+  LineElement,
   BarElement,
   ArcElement,
+  PointElement,
   Title,
   Tooltip,
   Legend,
@@ -26,8 +28,10 @@ import {
 ChartJS.register(
   CategoryScale,
   LinearScale,
+  LineElement,
   BarElement,
   ArcElement,
+  PointElement,
   Title,
   Tooltip,
   Legend
@@ -72,9 +76,7 @@ function Home() {
       x: {
         offset: true,
         ticks: {
-          color: isDarkMode
-            ? "rgba(255, 255, 255, 0.4)"
-            : "rgba(28, 28, 28, 0.4)",
+          color: isDarkMode ? "rgba(255, 255, 255, 0.4)" : "#3d3d3d",
           font: {
             size: 12,
           },
@@ -84,9 +86,8 @@ function Home() {
       y: {
         beginAtZero: true,
         ticks: {
-          color: isDarkMode
-            ? "rgba(255, 255, 255, 0.4)"
-            : "rgba(28, 28, 28, 0.4)",
+          stepSize: 10,
+          color: isDarkMode ? "rgba(255, 255, 255, 0.4)" : "#3d3d3d",
           font: {
             size: 12,
           },
@@ -97,6 +98,77 @@ function Home() {
             ? "rgba(255, 255, 255, 0.05)"
             : "rgba(0, 0, 0, 0.05)",
         },
+        border: { display: false },
+      },
+    },
+  };
+
+  const lineChartData = {
+    labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+    datasets: [
+      {
+        label: "Previous Week",
+        data: [10, 15, 12, 9, 14, 22],
+        borderColor: "#A8C5DA",
+        backgroundColor: "transparent",
+        cubicInterpolationMode: "monotone",
+        fill: false,
+        borderWidth: 2,
+        pointRadius: 0,
+      },
+      {
+        label: "Current Week - Actuals",
+        data: [12, 9, 11, 15, null, null],
+        borderColor: isDarkMode ? "#C6C7F8" : "#1c1c1c",
+        cubicInterpolationMode: "monotone",
+        borderWidth: 2,
+        pointRadius: 0,
+        fill: false,
+      },
+      // Black dashed part (Apr → Jun)
+      {
+        label: "Current Week - Projections",
+        data: [null, null, null, 15, 18, 20],
+        borderColor: isDarkMode ? "#C6C7F8" : "#1c1c1c",
+        borderWidth: 2,
+        borderDash: [5, 5],
+        tension: 0.4,
+        pointRadius: 0,
+        fill: false,
+      },
+    ],
+  };
+
+  const lineChartOptions = {
+    maintainAspectRatio: false,
+    plugins: {
+      legend: {
+        display: false,
+      },
+    },
+    scales: {
+      x: {
+        offset: true,
+        ticks: {
+          color: isDarkMode ? "rgba(255, 255, 255, 0.4)" : "#3d3d3d",
+          font: {
+            size: 12,
+          },
+        },
+        grid: { display: false },
+      },
+      y: {
+        beginAtZero: true,
+        max: 30,
+        ticks: {
+          color: isDarkMode ? "rgba(255, 255, 255, 0.4)" : "#3d3d3d",
+          font: {
+            size: 12,
+          },
+          stepSize: 10,
+          callback: (value) => (value > 0 ? value + "M" : value),
+        },
+        border: { display: false },
       },
     },
   };
@@ -301,6 +373,13 @@ function Home() {
                 </div>
               </div>
             ))}
+          </div>
+
+          <div
+            className="rc__chart"
+            style={{ width: "564px", height: "320px" }}
+          >
+            <Line data={lineChartData} options={lineChartOptions} />
           </div>
         </div>
 

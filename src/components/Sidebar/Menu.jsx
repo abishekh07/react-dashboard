@@ -27,7 +27,7 @@ function Menu() {
                 <div
                   className={`menu__list-item ${
                     openItem === uid ? "open" : ""
-                  }`}
+                  } ${listItem.title === "Default" ? "highlight" : ""}`}
                   key={listItem.id}
                 >
                   <div className="menu__list-item--info">

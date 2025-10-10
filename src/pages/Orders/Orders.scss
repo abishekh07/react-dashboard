@@ -4,7 +4,7 @@
 .orders {
   padding: 28px;
 
-  @include flexColumn(16px);
+  @include flexbox($direction: column, $gap: 16px);
 
   &__caption {
     font-size: 14px;
@@ -12,7 +12,7 @@
   }
 
   &__refine-panel {
-    @include spaceBetween;
+    @include flexbox($justify: space-between, $align: center);
 
     background-color: var(--primary-blue-2);
     padding: 8px;
@@ -20,12 +20,12 @@
   }
 
   &__filter {
-    @include alignCenter;
+    @include flexbox($align: center);
     gap: 8px;
 
     &-btn {
       @include iconBtnReset;
-      @include alignAllCenter;
+      @include flexbox($justify: center, $align: center);
 
       width: 28px;
       height: 28px;
@@ -34,7 +34,7 @@
   }
 
   &__search {
-    @include alignCenter;
+    @include flexbox($align: center);
     gap: 8px;
     padding: 4px 8px;
     border-radius: 8px;
@@ -42,7 +42,7 @@
     border: 1px solid var(--input-border-color);
 
     &-bar {
-      @include alignCenter;
+      @include flexbox($align: center);
       gap: 4px;
     }
 

@@ -3,7 +3,7 @@
 
 .Home {
   padding: 28px;
-  @include flexColumn(16px);
+  @include flexbox($direction: column, $gap: 16px);
 
   .overview {
     display: grid;
@@ -44,7 +44,7 @@
 
       &__card {
         padding: 24px;
-        @include flexColumn(8px);
+        @include flexbox($direction: column, $gap: 8px);
         align-items: flex-start;
         height: fit-content;
         border-radius: 16px;
@@ -85,7 +85,7 @@
 
       &__delta {
         font-size: 12px;
-        @include alignCenter;
+        @include flexbox($align: center);
         gap: 4px;
 
         &.negative {
@@ -99,17 +99,17 @@
     .projections {
       grid-area: projections;
 
-      @include flexColumn(16px);
+      @include flexbox($direction: column, $gap: 16px);
     }
 
     .revenue-chart {
       grid-area: revenue-chart;
 
-      @include flexColumn(16px);
+      @include flexbox($direction: column, $gap: 16px);
 
       .rc {
         &__header {
-          @include alignCenter;
+          @include flexbox($align: center);
           gap: 16px;
         }
 
@@ -118,7 +118,7 @@
         }
 
         &__legend {
-          @include alignCenter;
+          @include flexbox($align: center);
 
           &-color {
             @include colorBubble;
@@ -140,7 +140,7 @@
     .revenue-by-location {
       grid-area: revenue-by-location;
 
-      @include flexColumn(16px);
+      @include flexbox($direction: column, $gap: 16px);
 
       .rbl {
         &__map {
@@ -153,12 +153,12 @@
         }
 
         &__cities {
-          @include flexColumn(16px);
+          @include flexbox($direction: column, $gap: 16px);
         }
 
         &__city {
           &-info {
-            @include alignCenter;
+            @include flexbox($align: center);
             font-size: 12px;
           }
 
@@ -195,7 +195,7 @@
     .top-selling-products {
       grid-area: top-selling-products;
 
-      @include flexColumn(4px);
+      @include flexbox($direction: column, $gap: 4px);
 
       .tsp-table {
         margin-bottom: 24px;
@@ -248,10 +248,10 @@
     .total-sales {
       grid-area: total-sales;
 
-      @include flexColumn(16px);
+      @include flexbox($direction: column, $gap: 16px);
 
       &__chart {
-        @include alignAllCenter;
+        @include flexbox($justify: center, $align: center);
         width: 100%;
         height: 100%;
       }
@@ -266,7 +266,7 @@
           line-height: 18px;
 
           &:first-of-type {
-            @include alignCenter;
+            @include flexbox($align: center);
             padding-left: 4px;
           }
         }

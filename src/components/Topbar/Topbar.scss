@@ -2,12 +2,12 @@
 @use "../../styles/variables.scss" as *;
 
 .topbar {
-  @include spaceBetween;
+  @include flexbox($justify: space-between, $align: center);
   padding: 20px 28px;
   border-bottom: 1px solid var(--input-border-color);
 
   .navigation__button {
-    @include alignCenter;
+    @include flexbox($align: center);
     cursor: pointer;
     padding: 4px;
     margin: 0;
@@ -17,12 +17,12 @@
   }
 
   &__left {
-    @include alignCenter;
+    @include flexbox($align: center);
     gap: 8px;
     flex-grow: 1;
 
     .breadcrumb {
-      @include alignCenter;
+      @include flexbox($align: center);
       font-size: 14px;
 
       span[class^="breadcrumb"] {
@@ -40,18 +40,18 @@
   }
 
   &__right {
-    @include alignCenter;
+    @include flexbox($align: center);
     gap: 20px;
 
     .search {
       background-color: var(--input-bg-color);
       padding: 4px 8px;
-      @include alignCenter;
+      @include flexbox($align: center);
       gap: 8px;
       border-radius: 8px;
 
       &__bar {
-        @include alignCenter;
+        @include flexbox($align: center);
         gap: 4px;
       }
 
@@ -76,7 +76,7 @@
     }
 
     &-icons {
-      @include alignCenter;
+      @include flexbox($align: center);
       gap: 8px;
     }
   }

@@ -18,6 +18,7 @@ $progress-track-color-light: #e5eef5;
 $progress-track-fill-light: #a8c5da;
 
 $icon-fill-color-light: #1c1c1c;
+$selected-tab-pill-color-light: #1c1c1c;
 
 /* Dark Theme Colors */
 
@@ -38,6 +39,7 @@ $progress-track-color-dark: rgba(28, 28, 28, 0.2);
 $progress-track-fill-dark: #a8c5da;
 
 $icon-fill-color-dark: #ffffff;
+$selected-tab-pill-color-dark: #c6c7f8;
 
 html {
   --main-bg: #{$main-bg-light};
@@ -58,6 +60,7 @@ html {
   --progress-track-fill: #{$progress-track-fill-light};
 
   --icon-fill-color: #{$icon-fill-color-light};
+  --selected-tab-pill-color: #{$selected-tab-pill-color-light};
 }
 
 html.theme-dark {
@@ -79,4 +82,5 @@ html.theme-dark {
   --progress-track-fill: #{$progress-track-fill-dark};
 
   --icon-fill-color: #{$icon-fill-color-dark};
+  --selected-tab-pill-color: #{$selected-tab-pill-color-dark};
 }
